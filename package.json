@@ -1,7 +1,7 @@
 {
   "name": "lactuca",
-  "version": "0.1.1",
-  "description": "The MongoDB-based Opinionated Web Framework",
+  "version": "0.1.3",
+  "description": "A MongoDB-based Opinionated Web Framework",
   "main": "dist/index.js",
   "author": "Aego <aego.yu@gmail.com> (https://aego.me)",
   "license": "MIT",

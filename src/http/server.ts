@@ -6,10 +6,9 @@ import { Router, RouterRegisterOptions } from './core/router'
 import extendAjv from './validation/ajv'
 
 declare module 'fastify' {
-  interface RequestState {}
-
   interface FastifyRequest {
-    state: RequestState
+    state: {}
+    getState: <T extends {}>() => T
   }
 }
 
@@ -84,6 +83,7 @@ export const useHttpServer = async ({
 
     // Set initial request state
     req.state = {}
+    req.getState = <T>() => req.state as T
 
     next()
   })

@@ -7,8 +7,7 @@ import extendAjv from './validation/ajv'
 
 declare module 'fastify' {
   interface FastifyRequest {
-    state: {}
-    getState: <T extends {}>() => T
+    state<T extends {}>(): T
   }
 }
 
@@ -82,8 +81,10 @@ export const useHttpServer = async ({
     }
 
     // Set initial request state
-    req.state = {}
-    req.getState = <T>() => req.state as T
+    Object.assign(req, { __state: {} })
+
+    // Set state proxy
+    req.state = <T extends {}>() => (req as unknown as { __state: T }).__state
 
     next()
   })

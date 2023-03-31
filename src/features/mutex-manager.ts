@@ -1,8 +1,8 @@
-import { BaseModel, ModelType, Timestamps, useModel } from '../db/model'
+import { BaseModel, ModelType, TimestampsModel, useModel } from '../db/model'
 import { sleep } from '../utils/helpers'
 import { TooManyRequests } from '../utils/http-errors'
 
-export interface Mutex extends BaseModel, Timestamps {
+export interface Mutex extends BaseModel, TimestampsModel {
   name: string
   expiresAt?: Date
 }

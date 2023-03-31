@@ -67,8 +67,8 @@ export const HTTP_STATUS_CODE_MAP = {
 export type HttpStatusCode = keyof typeof HTTP_STATUS_CODE_MAP
 
 export class HttpError extends Error {
-  status: HttpStatusCode
-  statusCode: HttpStatusCode
+  public readonly status: HttpStatusCode
+  public readonly statusCode: HttpStatusCode
 
   constructor(
     code: HttpStatusCode,

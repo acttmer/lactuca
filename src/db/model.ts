@@ -45,16 +45,16 @@ export interface BaseModel {
   _id: ObjectId
 }
 
-export interface Timestamps {
+export interface TimestampsModel {
   createdAt: Date
   updatedAt: Date
 }
 
 export type NewDocument<T extends OmitRef<BaseModel>> = Omit<
   OptionalId<T>,
-  keyof Timestamps
+  keyof TimestampsModel
 > &
-  Partial<Timestamps>
+  Partial<TimestampsModel>
 
 export interface ExtraUpdateOptions {
   timestamps?: boolean
